@@ -1,0 +1,5 @@
+etc/config.yml
+vendor
+bin
+tmp
+.bundle

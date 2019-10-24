@@ -1,0 +1,100 @@
+<%#
+#==============================================================================
+# Copyright (C) 2019-present Alces Flight Ltd.
+#
+# This file is part of Flight Desktop Server.
+#
+# This program and the accompanying materials are made available under
+# the terms of the Eclipse Public License 2.0 which is available at
+# <https://www.eclipse.org/legal/epl-2.0>, or alternative license
+# terms made available by Alces Flight Ltd - please direct inquiries
+# about licensing to licensing@alces-flight.com.
+#
+# Flight Desktop Server is distributed in the hope that it will be useful, but
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, EITHER EXPRESS OR
+# IMPLIED INCLUDING, WITHOUT LIMITATION, ANY WARRANTIES OR CONDITIONS
+# OF TITLE, NON-INFRINGEMENT, MERCHANTABILITY OR FITNESS FOR A
+# PARTICULAR PURPOSE. See the Eclipse Public License 2.0 for more
+# details.
+#
+# You should have received a copy of the Eclipse Public License 2.0
+# along with Flight Desktop Server. If not, see:
+#
+#  https://opensource.org/licenses/EPL-2.0
+#
+# For more information on Flight Desktop Server, please visit:
+# https://github.com/alces-flight/flight-desktop-server
+#==============================================================================
+%>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Flight Desktop Access Service">
+    <meta name="author" content="Alces Flight Ltd">
+    <link rel="icon" href="assets/img/favicon.ico">
+
+    <title>Flight Desktop Access Service</title>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="assets/css/flight.css">
+    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="/">
+        <img src="assets/img/logo.png" />
+        <h4 class="d-none d-md-inline-block">Flight Desktop Access Service</h4>
+      </a>
+      <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"> -->
+      <!--   <span class="navbar-toggler-icon"></span> -->
+      <!-- </button> -->
+      <!-- <div class="collapse navbar-collapse" id="navbarCollapse"> -->
+      <!--   <ul class="navbar-nav mr-auto"> -->
+      <!--     <li class="nav-item active"> -->
+      <!--       <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
+      <!--     </li> -->
+      <!--     <li class="nav-item"> -->
+      <!--       <a class="nav-link" href="#">Link</a> -->
+      <!--     </li> -->
+      <!--     <li class="nav-item"> -->
+      <!--       <a class="nav-link disabled" href="#">Disabled</a> -->
+      <!--     </li> -->
+      <!--   </ul> -->
+      <!-- </div> -->
+    </nav>
+
+    <main role="main" class="container-fluid">
+      <%= yield %>
+    </main>
+
+    <footer class="footer">
+      <div class="container-fluid">
+        <div class="row justify-content-end">
+          <div class="col-4 text-light">
+            Flight Desktop Access Service &copy; 2019 Alces Flight Ltd
+          </div>
+          <div class="col-4 text-light text-right">
+            <%= DesktopServer::VERSION %>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/novnc-1.1.0/vendor/promise.js"></script>
+    <script nomodule src="assets/js/novnc-1.1.0/vendor/browser-es-module-loader/dist/browser-es-module-loader.js"></script>
+    <script type="module" crossorigin="anonymous">
+         // RFB holds the API to connect and communicate with a VNC server
+      import RFB from './assets/js/novnc-1.1.0/core/rfb.js';
+      window.RFB = RFB;
+    </script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>

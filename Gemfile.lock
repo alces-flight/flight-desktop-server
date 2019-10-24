@@ -1,0 +1,26 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    aw (0.1.6)
+    rack (2.0.7)
+    rack-app (7.5.2)
+      rack
+    rack-app-front_end (0.22.0)
+      rack-app (>= 6.3.1)
+      tilt
+    rpam2 (4.0.2)
+    tilt (2.0.10)
+    tty-config (0.3.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  aw
+  rack-app
+  rack-app-front_end
+  rpam2
+  tty-config
+
+BUNDLED WITH
+   1.17.3

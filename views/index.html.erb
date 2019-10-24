@@ -1,0 +1,148 @@
+<%#
+#==============================================================================
+# Copyright (C) 2019-present Alces Flight Ltd.
+#
+# This file is part of Flight Desktop Server.
+#
+# This program and the accompanying materials are made available under
+# the terms of the Eclipse Public License 2.0 which is available at
+# <https://www.eclipse.org/legal/epl-2.0>, or alternative license
+# terms made available by Alces Flight Ltd - please direct inquiries
+# about licensing to licensing@alces-flight.com.
+#
+# Flight Desktop Server is distributed in the hope that it will be useful, but
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, EITHER EXPRESS OR
+# IMPLIED INCLUDING, WITHOUT LIMITATION, ANY WARRANTIES OR CONDITIONS
+# OF TITLE, NON-INFRINGEMENT, MERCHANTABILITY OR FITNESS FOR A
+# PARTICULAR PURPOSE. See the Eclipse Public License 2.0 for more
+# details.
+#
+# You should have received a copy of the Eclipse Public License 2.0
+# along with Flight Desktop Server. If not, see:
+#
+#  https://opensource.org/licenses/EPL-2.0
+#
+# For more information on Flight Desktop Server, please visit:
+# https://github.com/alces-flight/flight-desktop-server
+#==============================================================================
+%>
+<div class="sessions container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="jumbotron">
+        <h1 class="display-4">Interact with your HPC Environment</h1>
+        <p class="lead">
+          The Flight Desktop Access Service allows you to access interactive GUI (graphical user interface) desktop sessions running on your cluster from the comfort of your browser.
+        </p>
+        <hr class="my-4" />
+        <p>
+          Powered by the Flight Desktop tool, part of the Alces Flight user suite, this app allows you to launch, manage and connect to GUI desktop sessions that operate within your Alces Flight Direct HPC environment.
+        </p>
+        <p>
+          To start interacting with desktop sessions and gain access to your HPC environment, follow the three simple steps outlined below: sign in, launch, connect.
+        </p>
+        <!--a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a-->
+      </div>
+    </div>
+  </div>
+  <div class="card-deck">
+    <div class="card mb-2 border-primary">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-2 text-center">
+            <h1 class="step bg-info">1</h1>
+          </div>
+          <div class="col">
+            <h5>Sign in</h5>
+            <p>
+              Sign in to your Flight Direct HPC environment account.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p>
+              You'll need your account username and password. Enter
+              your username below and click <i>Go!</i>, then enter
+              your username and password when prompted by your
+              browser.
+            </p>
+            <p>
+              Contact your HPC administrator if you don't have these
+              details or need a reminder.
+            </p>
+            <form id="usernameForm">
+              <div class="input-group mb-3">
+                <input type="text" name="username" class="form-control" id="username" placeholder="Enter username">
+                <div class="input-group-append">
+                  <button class="btn btn-primary" type="submit" id="go">Go!</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-2 border-primary">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-2 text-center">
+            <h1 class="step bg-success">2</h1>
+          </div>
+          <div class="col">
+            <h5>Launch</h5>
+            <p>
+              Start a new desktop session.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p>
+              Once signed in, you'll be shown a list of any existing
+              desktop sessions and have the option to launch a new
+              session.
+            <p>
+              You can <i>Connect</i> to an existing session or simply
+              click the <i>Launch</i> button to fire up a desktop
+              session.
+            </p>
+            <p class="text-center text-primary">
+              <i style="font-size: 72px" class="fa fa-rocket"></i>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-2 border-primary">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-2 text-center">
+            <h1 class="step bg-primary">3</h1>
+          </div>
+          <div class="col">
+            <h5>Connect</h5>
+            <p>
+              Access your session in your web browser.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p>
+              With your session running, click the <i>Connect</i> button
+              to access the desktop from within your browser.
+            </p>
+            <p>
+              Once connected, interact with the desktop session using
+              your mouse and keyboard as normal.
+            </p>
+            <p class="text-center text-primary">
+              <i style="font-size: 72px" class="fa fa-bolt"></i>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
