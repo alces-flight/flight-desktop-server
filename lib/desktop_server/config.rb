@@ -61,7 +61,7 @@ module DesktopServer
       def url_prefix
         @url_prefix ||= data.fetch(
           :url_prefix,
-          default: 'ws://localhost:8080/ws'
+          default: 'ws://%HOST%/ws'
         )
       end
 
@@ -72,6 +72,13 @@ module DesktopServer
             default: 'etc/placeholder.jpg'
           ),
           root
+        )
+      end
+
+      def path_prefix
+        @path_prefix ||= data.fetch(
+          :path_prefix,
+          default: ''
         )
       end
     end
