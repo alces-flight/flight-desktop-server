@@ -27,5 +27,6 @@
 ---
 desktop_type: gnome
 realm: Cluster login
-url_prefix: ws://localhost:8080/ws
+url_prefix: ws://%HOST%/ws
 placeholder_image: etc/placeholder.jpg
+path_prefix: ''

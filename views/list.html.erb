@@ -42,7 +42,7 @@
             </p>
           </div>
           <div class="col">
-            <a href="/<%= @user %>/launch" class="btn-disableable btn btn-success btn-block">
+            <a href="<%= DesktopServer::Config.path_prefix %>/<%= @user %>/launch" class="btn-disableable btn btn-success btn-block">
               <i class="fa fa-rocket"></i>
               <span>Launch</span>
             </a>
@@ -94,14 +94,14 @@
               </button>
             </div>
             <div class="col-6">
-              <a href="/<%= @user %>/terminate/<%= s.uuid %>" class="btn-disableable btn btn-danger btn-block">
+              <a href="<%= DesktopServer::Config.path_prefix %>/<%= @user %>/terminate/<%= s.uuid %>" class="btn-disableable btn btn-danger btn-block">
                 <i class="fa fa-trash"></i>
                 <span>Terminate</span>
               </a>
             </div>
             <% else %>
             <div class="col-6">
-              <a href="/<%= @user %>/clean/<%= s.uuid %>" class="btn-disableable btn btn-warning btn-block">
+              <a href="<%= DesktopServer::Config.path_prefix %>/<%= @user %>/clean/<%= s.uuid %>" class="btn-disableable btn btn-warning btn-block">
                 <i class="fa fa-trash"></i>
                 <span>Clean</span>
               </a>

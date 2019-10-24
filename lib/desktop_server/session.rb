@@ -75,6 +75,7 @@ module DesktopServer
         Aw.fork! do
           ENV['HOME'] = user_data.dir
           Process::Sys.setuid(user)
+          Process.setsid
           yield
         rescue
           $!

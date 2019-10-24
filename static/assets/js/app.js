@@ -77,7 +77,12 @@ $(document).ready(
         $('.desktop').removeClass('d-none');
         var session = JSON.parse($(ev.currentTarget).attr('data-session'));
         $('#desktop-title').text(session.name);
-        window.vnc_session = connectVNC(session.url, session.password);
+        var hostport = window.location.host;
+        if (window.location.port) {
+          hostport += window.location.port;
+        }
+        var url = session.url.replace('%HOST%', hostport);
+        window.vnc_session = connectVNC(url, session.password);
       }
     )
 
@@ -97,7 +102,11 @@ $(document).ready(
           values[field.name] = field.value;
         });
         if ( values['username'] !== "" ) {
-          window.location = "/" + values['username'];
+          var slash = "/";
+          if ( window.location.pathname[window.location.pathname.length-1] == '/' ) {
+            slash = "";
+          }
+          window.location = window.location + slash + values['username'];
         }
         ev.preventDefault();
       }

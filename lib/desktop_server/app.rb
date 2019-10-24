@@ -81,19 +81,22 @@ module DesktopServer
       get '/launch' do
         @user = params['user']
         Session.launch(@user)
-        redirect_to "/#{@user}"
+        response.status = 302
+        response.headers['Location'] = "#{Config.path_prefix}/#{@user}"
       end
 
       get '/terminate/:uuid' do
         @user = params['user']
         Session.terminate(@user, params['uuid'])
-        redirect_to "/#{@user}"
+        response.status = 302
+        response.headers['Location'] = "#{Config.path_prefix}/#{@user}"
       end
 
       get '/clean/:uuid' do
         @user = params['user']
         Session.clean(@user, params['uuid'])
-        redirect_to "/#{@user}"
+        response.status = 302
+        response.headers['Location'] = "#{Config.path_prefix}/#{@user}"
       end
     end
   end
