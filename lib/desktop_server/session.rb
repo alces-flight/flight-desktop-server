@@ -121,7 +121,8 @@ module DesktopServer
         if Kernel.const_defined?(:OpenFlight) && OpenFlight.respond_to?(:with_unbundled_env)
           OpenFlight.with_unbundled_env(&block_with_home)
         else
-          Bundler.with_unbundled_env(&block_with_home)
+          msg = Bundler.respond_to?(:with_unbundled_env) ? :with_unbundled_env : :with_clean_env
+          Bundler.__send__(msg) { block.call }
         end
       end
     end
