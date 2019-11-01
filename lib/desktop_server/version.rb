@@ -25,6 +25,6 @@
 # https://github.com/alces-flight/flight-desktop-server
 #==============================================================================
 module DesktopServer
-  VERSION = '1.1.1'
+  VERSION = '1.1.2'
   RELEASE = '2019.2.1'
 end
