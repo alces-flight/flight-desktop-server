@@ -82,21 +82,33 @@ module DesktopServer
         @user = params['user']
         Session.launch(@user)
         response.status = 302
-        response.headers['Location'] = "#{Config.path_prefix}/#{@user}"
+        if request.env['HTTP_REFERER']
+          response.headers['Location'] = request.env['HTTP_REFERER']
+        else
+          response.headers['Location'] = "#{Config.path_prefix}/#{@user}"
+        end
       end
 
       get '/terminate/:uuid' do
         @user = params['user']
         Session.terminate(@user, params['uuid'])
         response.status = 302
-        response.headers['Location'] = "#{Config.path_prefix}/#{@user}"
+        if request.env['HTTP_REFERER']
+          response.headers['Location'] = request.env['HTTP_REFERER']
+        else
+          response.headers['Location'] = "#{Config.path_prefix}/#{@user}"
+        end
       end
 
       get '/clean/:uuid' do
         @user = params['user']
         Session.clean(@user, params['uuid'])
         response.status = 302
-        response.headers['Location'] = "#{Config.path_prefix}/#{@user}"
+        if request.env['HTTP_REFERER']
+          response.headers['Location'] = request.env['HTTP_REFERER']
+        else
+          response.headers['Location'] = "#{Config.path_prefix}/#{@user}"
+        end
       end
     end
   end

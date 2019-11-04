@@ -78,9 +78,6 @@ $(document).ready(
         var session = JSON.parse($(ev.currentTarget).attr('data-session'));
         $('#desktop-title').text(session.name);
         var hostport = window.location.host;
-        if (window.location.port) {
-          hostport += window.location.port;
-        }
         var url = session.url.replace('%HOST%', hostport);
         window.vnc_session = connectVNC(url, session.password);
       }
