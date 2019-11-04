@@ -74,6 +74,8 @@ module DesktopServer
         user_data = Etc.getpwnam(user)
         Aw.fork! do
           ENV['HOME'] = user_data.dir
+          ENV['USER'] = user
+          Process::Sys.setgid(user_data.gid)
           Process::Sys.setuid(user)
           Process.setsid
           yield
@@ -89,17 +91,21 @@ module DesktopServer
       end
 
       def desktop_cmd(*cmd)
-        with_unbundled_env do
+        with_clean_env do
           output = []
           IO.popen(
             [
               {
-                "TERM" => "vt100"
+                "USER" => ENV['USER'],
+                "HOME" => ENV['HOME'],
+                "PATH" => ENV['PATH'],
+                "TERM" => "vt100",
               },
               '/opt/flight/bin/flight',
               'desktop',
               *cmd,
-              :err=>[:child, :out]
+              :err => [:child, :out],
+              :unsetenv_others => true
             ]
           ) do |io|
             output.concat(io.readlines)
@@ -112,17 +118,17 @@ module DesktopServer
         end
       end
 
-      def with_unbundled_env(&block)
-        home = ENV['HOME']
-        block_with_home = lambda do
-          ENV['HOME'] = home
+      def with_clean_env(&block)
+        home, user = ENV['HOME'], ENV['USER']
+        block_with_fixed_env = lambda do
+          ENV['HOME'], ENV['USER'] = home, user
           block.call
         end
         if Kernel.const_defined?(:OpenFlight) && OpenFlight.respond_to?(:with_unbundled_env)
-          OpenFlight.with_unbundled_env(&block_with_home)
+          OpenFlight.with_standard_env(&block_with_fixed_env)
         else
           msg = Bundler.respond_to?(:with_unbundled_env) ? :with_unbundled_env : :with_clean_env
-          Bundler.__send__(msg) { block.call }
+          Bundler.__send__(msg, &block_with_fixed_env)
         end
       end
     end
