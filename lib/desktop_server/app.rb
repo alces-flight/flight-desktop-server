@@ -59,7 +59,7 @@ module DesktopServer
     layout '/views/layout.html.erb'
 
     use Auth, Config.realm do |username, password|
-      Rpam2.auth("system-auth", username, password)
+      Rpam2.auth("sshd", username, password)
     end
 
     error DesktopServer::RuntimeError do |ex|
