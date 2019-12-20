@@ -2,7 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     aw (0.1.6)
-    rack (2.0.7)
+    rack (2.0.8)
     rack-app (7.5.2)
       rack
     rack-app-front_end (0.22.0)
